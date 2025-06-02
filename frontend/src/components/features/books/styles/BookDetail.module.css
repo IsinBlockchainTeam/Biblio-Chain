@@ -1,0 +1,344 @@
+.depositHighlight, .priceHighlight {
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.depositHighlight {
+    color: white;
+    background: linear-gradient(90deg, rgba(66, 140, 212, 0.7), rgba(66, 140, 212, 0.3));
+}
+
+.priceHighlight {
+    color: white;
+    background: linear-gradient(90deg, rgba(234, 68, 146, 0.7), rgba(234, 68, 146, 0.3));
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(4, 27, 45, 0.95);
+    backdrop-filter: blur(5px);
+}
+
+.bookDetailContainer {
+    width: 100%;
+    max-width: 900px;
+    height: 80vh;
+    margin: 2rem;
+    animation: fadeIn 0.3s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bookDetailCard {
+    display: flex;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    height: 560px;
+    width: 100%;
+    background-color: var(--primary-darkest);
+    position: relative;
+}
+
+/* Left column - Colored section */
+.coverColumn {
+    flex: 0 0 200px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: var(--primary-dark);
+    overflow: hidden;
+    justify-content: space-between;
+}
+
+/* blur overlay for blue/pink effect */
+.coverColumn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:radial-gradient(circle at -30% -30%, rgba(42, 116, 191, 0.74) 0%, transparent 50%),
+            radial-gradient(circle at 100% 100%, rgba(140, 0, 255, 0.82) 0%, transparent 50%),
+            radial-gradient(circle at 120% 0%, rgba(230, 0, 255, 0.81) 0%, transparent 70%);
+
+    filter: blur(50px);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.backButton {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: all 0.2s;
+    z-index: 4;
+    backdrop-filter: blur(5px);
+}
+
+.backButton:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* cover nella sezione in mezzo*/
+.coverWrapper {
+    position: absolute;
+    left: 120px;
+    top: 60px; /*ita allineato con titolo*/
+    z-index: 10;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: auto;
+}
+
+.coverImage {
+    width: 280px;
+    height: 420px; /* sezione altezza fissa x matchare altezza componenti a dx*/
+    object-fit: cover;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+.coverPlaceholder {
+    width: 280px;
+    height: 420px; /* sezione altezza fissa x matchare altezza componenti a dx*/
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* fallback se non ho la cover come img */
+.titleOnCover {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.authorOnCover {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.availabilityInfo {
+    position: relative;
+    color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+    z-index: 2; /* per metterlo sopra l'overlay blurrato*/
+    margin-top: auto;
+    text-align: center;
+    font-weight: 600;
+}
+
+.infoLine {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.infoLabel {
+    min-width: 150px;
+    font-size: 1rem;
+    color: white;
+    font-weight: 600;
+}
+
+.infoValue {
+    font-size: 1rem;
+    color: white;
+}
+
+/* statua badges */
+.availabilityBadge {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-left: 0.5rem;
+}
+
+/* ---------------------- Right column - infos */
+.infoColumn {
+    flex: 1;
+    background-color: var(--primary-darkest);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-left: 160px; /* spazio x libro */
+}
+
+.indicator {
+    position: absolute;
+    top: 0;
+    left: 190px; /*allineato con main content */
+    height: 4px;
+    width: 100px;
+    background: linear-gradient(90deg, var(--accent), var(--primary-medium));
+}
+
+.bookInfo {
+    padding: 30px;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.year {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0 !important;
+    margin-top: 1.2rem !important;
+}
+
+.author {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1rem;
+}
+
+.rating {
+    display: flex;
+    gap: 0.25rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1rem;
+}
+
+/* owner info */
+.ownerInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-bottom: 1.5rem;
+    padding: 0.8rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.ownerLabel {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.ownerAddress {
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: white;
+    word-break: break-all;
+}
+
+/* sttaus info*/
+.statusInfo {
+    margin-top: auto;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+}
+
+/* Status styles */
+.availableStatus {
+    color: #4ade80;
+    font-weight: 600;
+}
+
+.lentStatus {
+    color: #ff77bd;
+    font-weight: 600;
+}
+
+.borrowedStatus {
+    color: var(--primary-medium);
+    font-weight: 600;
+}
+
+.rentableStatus {
+    color: #4ade80;
+    font-weight: 600;
+}
+
+.actionSection {
+    margin-bottom: 1.5rem;
+}
+
+.actionButtons {
+    display: flex;
+    gap: 1rem;
+}
+
+.actionButton {
+    width: 100%;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+/*TODO: da spostare in button?*/
+.disabledButton {
+    background: linear-gradient(90deg, #6b5761, #2c4e74) !important;
+    opacity: 0.7;
+    cursor: not-allowed;
+    box-shadow: none !important;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

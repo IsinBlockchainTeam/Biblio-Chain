@@ -1,0 +1,45 @@
+/* src/pages/Catalog/components/ViewModeSwitch/ViewModeSwitch.module.css */
+.viewModeSwitch {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.switchContainer {
+    display: flex;
+    background-color: rgba(4, 27, 45, 0.6);
+    border-radius: 30px;
+    padding: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.switchButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: none;
+    border-radius: 30px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.85rem;
+}
+
+.switchButton.active {
+    background: linear-gradient(90deg, var(--accent), var(--primary-medium));
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.switchButton:hover:not(.active) {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+}

@@ -1,0 +1,27 @@
+:root {
+    --background-dark: rgba(4, 27, 45, 0.85);
+    --primary-darkest: #041B2D;
+    --primary-dark: #004E9A;
+    --primary-medium: #428CD4;
+
+    /* Colori accent */
+    --accent-light: #FF9CDA;
+    --accent: #EA4492;
+
+    /* Testo */
+    --text-light: #ffffff;
+    --text-dark: #041B2D;
+    --text-muted: #94a3b8;
+
+    /* Elementi UI */
+    --border-radius-sm: 6px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 30px;
+
+    /* Animazioni */
+    --transition-fast: 0.2s;
+    --transition-medium: 0.3s;
+    --transition-slow: 0.5s;
+
+    --container-max-width: 1400px;
+}

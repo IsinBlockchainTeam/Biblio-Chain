@@ -1,0 +1,44 @@
+
+.ratingContainer {
+    display: flex;
+    align-items: center;
+}
+
+.stars {
+    position: relative;
+    display: inline-block;
+    margin-right: 8px;
+    line-height: 1;
+    letter-spacing: 1px;
+}
+
+.small {
+    font-size: 0.75rem;
+}
+
+.medium {
+    font-size: 0.85rem;
+}
+
+.large {
+    font-size: 1.2rem;
+}
+
+.emptyStars {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.filledStars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #FFD700;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.ratingValue {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+}

@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/RentableBook.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> RentableBook.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>40/40</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>38/38</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>9/9</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>58/58</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">233×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">96×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">88×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">187×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">186×</span>
+<span class="cline-any cline-yes">186×</span>
+<span class="cline-any cline-yes">186×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">186×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">186×</span>
+<span class="cline-any cline-yes">186×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">46×</span>
+<span class="cline-any cline-yes">44×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">43×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">43×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">51×</span>
+<span class="cline-any cline-yes">51×</span>
+<span class="cline-any cline-yes">51×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
+&nbsp;
+import "./Book.sol";
+import "./User.sol";
+&nbsp;
+/**
+ * @title RentableBook
+ * @dev Extension of Book contract that supports borrowing functionality with escrow for deposits
+ */
+contract RentableBook is Book, Ownable {
+    // Rental data structure
+    struct RentalData {
+        address borrower;        // Address of the borrower
+        uint256 startDate;       // Timestamp when the book was borrowed
+        uint256 depositAmount;   // Deposit amount in wei
+        uint256 lendingPeriod;   // Lending period in days
+    }
+&nbsp;
+    // Reference to the UserTrustSystem contract
+    UserTrustSystem public userSystem;
+&nbsp;
+    // Mapping from tokenId to RentalData
+    mapping(uint256 =&gt; RentalData) private _rentals;
+&nbsp;
+    // Mapping to track borrowing history (for rating permission)
+    mapping(uint256 =&gt; mapping(address =&gt; bool)) private _hasBorrowed;
+&nbsp;
+    mapping(uint256 =&gt; uint256) private _deposits;
+&nbsp;
+&nbsp;
+    uint256 private _nextTokenId = 0;
+    uint256 public returnerRewardPercentage = 20;
+&nbsp;
+    constructor(address _userSystemAddress) Ownable(msg.sender) {
+        userSystem = UserTrustSystem(_userSystemAddress);
+    }
+&nbsp;
+    // Events
+    event RentableBookCreated(uint256 indexed tokenId, uint256 depositAmount, uint256 lendingPeriod);
+    event BookBorrowed(uint256 indexed tokenId, address indexed borrower, uint256 endDate);
+    event BookReturned(uint256 indexed tokenId, address indexed borrower);
+    event BookReturnedByThirdParty(uint256 indexed tokenId, address indexed returner, address indexed borrower, uint256 rewardAmount);
+    event DepositClaimed(uint256 indexed tokenId, address indexed owner, uint256 amount);
+&nbsp;
+&nbsp;
+    modifier onlyAuthorized() {
+        require(
+            userSystem.isAuthorizedContract(msg.sender),
+            "Not authorized"
+        );
+        _;
+    }
+    /**
+     * @dev Creates a new rentable book
+     * @param creator Address of the user creating the book
+     * @param ipfsMetadata IPFS CID containing book metadata
+     * @param depositAmount The deposit amount required to borrow the book (in wei)
+     * @param lendingPeriod The lending period in days
+     * @return The token ID of the newly created book
+     */
+    function createRentableBook(
+        address creator,
+        string memory ipfsMetadata,
+        uint256 depositAmount,
+        uint256 lendingPeriod
+    ) public onlyOwner returns (uint256) {
+        require(lendingPeriod &gt; 0 &amp;&amp; lendingPeriod &lt;= 365, "RentableBook: invalid lending period");
+&nbsp;
+        uint256 tokenId = _nextTokenId+2;
+        _nextTokenId += 2;
+        _registerBook(tokenId, creator, ipfsMetadata);
+&nbsp;
+        _rentals[tokenId] = RentalData({
+            borrower: address(0),
+            startDate: 0,
+            depositAmount: depositAmount,
+            lendingPeriod: lendingPeriod
+        });
+&nbsp;
+        emit RentableBookCreated(tokenId, depositAmount, lendingPeriod);
+        return tokenId;
+    }
+&nbsp;
+    /**
+     * @dev Borrows a book. The borrower must send the deposit amount.
+     * @param tokenId The ID of the book to borrow
+     */
+    function borrowBook(address borrower, uint256 tokenId) public payable onlyAuthorized {
+        require(_rentals[tokenId].borrower == address(0), "RentableBook: book is already borrowed");
+        require(ownerOf(tokenId) != borrower, "RentableBook: owner cannot borrow their own book");
+&nbsp;
+        // Check if the book is overdue
+&nbsp;
+        RentalData storage rental = _rentals[tokenId];
+&nbsp;
+        require(msg.value &gt;= rental.depositAmount, "RentableBook: insufficient deposit");
+&nbsp;
+        // Calculate end date
+        uint256 endDate = block.timestamp + (rental.lendingPeriod * 1 days);
+&nbsp;
+        // Store the deposit in the contract (escrow)
+        _deposits[tokenId] = rental.depositAmount;
+&nbsp;
+        // Update rental data
+        rental.borrower = borrower;
+        rental.startDate = block.timestamp;
+&nbsp;
+        // Mark borrower's history with this book
+        _hasBorrowed[tokenId][borrower] = true;
+&nbsp;
+        // Return any excess payment back to borrower
+        if (msg.value &gt; rental.depositAmount) {
+            payable(borrower).transfer(msg.value - rental.depositAmount);
+        }
+&nbsp;
+        emit BookBorrowed(tokenId, borrower, endDate);
+    }
+&nbsp;
+    /**
+     * @dev Returns a borrowed book. Only the borrower can return it.
+     * @param tokenId The ID of the book to return
+     */
+    function returnBook(address borrower, uint256 tokenId) onlyAuthorized public {
+        RentalData storage rental = _rentals[tokenId];
+&nbsp;
+        uint256 depositAmount = _deposits[tokenId];
+&nbsp;
+        // Check if the return is overdue
+        bool isOverdue = false;
+&nbsp;
+        uint256 dueDate = rental.startDate + (rental.lendingPeriod * 1 days);
+        isOverdue = block.timestamp &gt; dueDate;
+&nbsp;
+        // Reset borrower data
+        rental.borrower = address(0);
+        rental.startDate = 0;
+&nbsp;
+        // Clear deposit record
+        _deposits[tokenId] = 0;
+&nbsp;
+        // If overdue, decrease trust level
+        if (isOverdue &amp;&amp; address(userSystem) != address(0) &amp;&amp; !userSystem.isSystemOwner(borrower) ) {
+            userSystem.decreaseTrustLevel(borrower, UserTrustSystem.InfractionSeverity.Low);
+        }
+&nbsp;
+        // Return the deposit to the borrower if there is any
+        if (depositAmount &gt; 0) {
+            payable(borrower).transfer(depositAmount);
+        }
+&nbsp;
+        emit BookReturned(tokenId, borrower);
+    }
+&nbsp;
+    /**
+     * @dev Return an overdue book on behalf of someone else
+     * @param tokenId The ID of the book to return
+     */
+    function returnOverdueBook(address person, uint256 tokenId) public onlyAuthorized {
+        RentalData storage rental = _rentals[tokenId];
+        require(rental.borrower != address(0), "RentableBook: book is not borrowed");
+&nbsp;
+        // Check if the book is overdue
+        uint256 dueDate = rental.startDate + (rental.lendingPeriod * 1 days);
+&nbsp;
+        address borrower = rental.borrower;
+        uint256 depositAmount = _deposits[tokenId];
+&nbsp;
+        // Reset rental data
+        rental.borrower = address(0);
+        rental.startDate = 0;
+&nbsp;
+        // Clear deposit record
+        _deposits[tokenId] = 0;
+&nbsp;
+        if (!userSystem.isSystemOwner(borrower)) {
+            userSystem.decreaseTrustLevel(borrower, UserTrustSystem.InfractionSeverity.Low);
+        }
+&nbsp;
+        // Distribute the deposit
+        if (depositAmount &gt; 0) {
+            // Calculate returner reward
+            uint256 rewardAmount = (depositAmount * returnerRewardPercentage) / 100;
+            uint256 ownerAmount = depositAmount - rewardAmount;
+&nbsp;
+            // Send reward to returner
+            payable(person).transfer(rewardAmount);
+&nbsp;
+            // Send remaining amount to book owner
+            payable(ownerOf(tokenId)).transfer(ownerAmount);
+&nbsp;
+            emit BookReturnedByThirdParty(tokenId, person, borrower, rewardAmount);
+        }
+    }
+&nbsp;
+    /**
+     * @dev Allows a borrower or past borrower to rate a book
+     * @param rater Address of the user rating the book
+     * @param tokenId The ID of the book to rate
+     * @param rating The rating (0-500, representing 0-5 with 2 decimal points)
+     */
+    function rateBook(address rater, uint256 tokenId, uint256 rating) public onlyAuthorized {
+        require(_hasBorrowed[tokenId][rater], "RentableBook: only borrowers can rate the book");
+        _addRating(tokenId, rater, rating);
+    }
+&nbsp;
+    /**
+     * @dev Sets the reward percentage for returning overdue books
+     * @param percentage The new percentage (0-100)
+     */
+    function setReturnerRewardPercentage(uint256 percentage) onlyAuthorized public {
+        require(percentage &lt;= 100, "RentableBook: percentage must be between 0 and 100");
+        returnerRewardPercentage = percentage;
+    }
+&nbsp;
+    /**
+     * @dev Gets all data related to a rentable book
+     * @param tokenId The ID of the book
+     * @return bookData The base book data
+     * @return rentalData The rental data
+     */
+    function getFullBookData(uint256 tokenId) public view returns (BookData memory bookData, RentalData memory rentalData) {
+        bookData = getBookData(tokenId);
+        rentalData = _rentals[tokenId];
+        return (bookData, rentalData);
+    }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Apr 11 2025 12:51:10 GMT+0200 (Central European Summer Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

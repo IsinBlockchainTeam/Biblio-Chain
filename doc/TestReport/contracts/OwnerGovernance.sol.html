@@ -1,0 +1,980 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/OwnerGovernance.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> OwnerGovernance.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>63/63</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>52/52</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>13/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>90/90</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">231×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">552×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">545×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">297×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">296×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">296×</span>
+<span class="cline-any cline-yes">294×</span>
+<span class="cline-any cline-yes">292×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">291×</span>
+<span class="cline-any cline-yes">291×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">291×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">291×</span>
+<span class="cline-any cline-yes">172×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">193×</span>
+<span class="cline-any cline-yes">192×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">190×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">190×</span>
+<span class="cline-any cline-yes">190×</span>
+<span class="cline-any cline-yes">190×</span>
+<span class="cline-any cline-yes">190×</span>
+<span class="cline-any cline-yes">190×</span>
+<span class="cline-any cline-yes">190×</span>
+<span class="cline-any cline-yes">190×</span>
+<span class="cline-any cline-yes">190×</span>
+<span class="cline-any cline-yes">190×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">190×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">190×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">190×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">33×</span>
+<span class="cline-any cline-yes">31×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">296×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">296×</span>
+<span class="cline-any cline-yes">296×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">296×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">256×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">40×</span>
+<span class="cline-any cline-yes">40×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">172×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">172×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">164×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">172×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">172×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
+&nbsp;
+import "./User.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+&nbsp;
+/**
+ * @title OwnerGovernance
+ * @dev Sistema di governance multifirma per system owner con possibilità di voto contro
+ */
+contract OwnerGovernance is Ownable {
+    // Reference to the UserTrustSystem contract
+    UserTrustSystem public userSystem;
+&nbsp;
+    // Proposal types
+    enum ProposalType {AddOwner, RemoveOwner}
+&nbsp;
+    // Proposal states
+    enum ProposalState {Pending, Executed, Rejected}
+&nbsp;
+    // Proposal structure
+    struct Proposal {
+        uint256 id;                  // Proposal unique ID
+        ProposalType proposalType;   // Type of proposal
+        address target;              // Target address (to add/remove)
+        address proposer;            // Address of the proposer
+        ProposalState state;         // Current state of proposal
+        uint256 approvalCount;       // Number of approvals
+        uint256 rejectionCount;      // Number of rejections
+        uint256 createdAt;           // Timestamp when proposal was created
+        mapping(address =&gt; bool) hasVoted;  // Mapping to track who has voted (approved or rejected)
+    }
+&nbsp;
+    // Mapping of proposal ID to Proposal
+    mapping(uint256 =&gt; Proposal) public proposals;
+&nbsp;
+    // Current proposal count (also used as ID)
+    uint256 public proposalCount;
+&nbsp;
+    // Events
+    event ProposalCreated(uint256 indexed proposalId, ProposalType proposalType, address target, address proposer);
+    event ProposalApproved(uint256 indexed proposalId, address approver);
+    event ProposalRejected(uint256 indexed proposalId, address rejecter);
+    event ProposalExecuted(uint256 indexed proposalId);
+    event ProposalRejectionFinalized(uint256 indexed proposalId);
+&nbsp;
+    /**
+     * @dev Constructor to set the UserTrustSystem address
+     * @param _userSystem Address of the UserTrustSystem contract
+     */
+    constructor(address _userSystem) Ownable(msg.sender) {
+        userSystem = UserTrustSystem(_userSystem);
+    }
+&nbsp;
+    modifier onlyAuthorized() {
+        require(
+            msg.sender == owner(),
+            "Not authorized"
+        );
+        _;
+    }
+&nbsp;
+    /**
+     * @dev Approve a proposal
+     * @param sender Address of the approver
+     * @param proposalId ID of the proposal to approve
+     */
+    function approveProposal(address sender, uint256 proposalId) public onlyAuthorized {
+        require(proposalId &lt; proposalCount, "Proposal does not exist");
+&nbsp;
+        Proposal storage proposal = proposals[proposalId];
+&nbsp;
+        require(proposal.state == ProposalState.Pending, "Proposal is not pending");
+        require(!proposal.hasVoted[sender], "Already voted");
+        require(proposal.target != sender, "Cannot approve action on yourself");
+&nbsp;
+        // Mark as voted and increment approval count
+        proposal.hasVoted[sender] = true;
+        proposal.approvalCount++;
+&nbsp;
+        emit ProposalApproved(proposalId, sender);
+&nbsp;
+        // Check if proposal can be executed
+        if (_canExecute(proposalId)) {
+            _executeProposal(proposalId);
+        }
+    }
+&nbsp;
+    /**
+     * @dev Reject a proposal
+     * @param sender Address of the rejecter
+     * @param proposalId ID of the proposal to reject
+     */
+    function rejectProposal(address sender, uint256 proposalId) public onlyAuthorized {
+        require(proposalId &lt; proposalCount, "Proposal does not exist");
+&nbsp;
+        Proposal storage proposal = proposals[proposalId];
+&nbsp;
+        require(proposal.state == ProposalState.Pending, "Proposal is not pending");
+        require(!proposal.hasVoted[sender], "Already voted");
+&nbsp;
+        // Mark as voted and increment rejection count
+        proposal.hasVoted[sender] = true;
+        proposal.rejectionCount++;
+&nbsp;
+        emit ProposalRejected(proposalId, sender);
+&nbsp;
+        // Check if proposal cannot reach quorum anymore
+        if (_cannotReachQuorum(proposalId)) {
+            proposal.state = ProposalState.Rejected;
+            emit ProposalRejectionFinalized(proposalId);
+        }
+    }
+&nbsp;
+    /**
+     * @dev Create a proposal to add a new system owner
+     * @param sender Address proposing the addition
+     * @param newOwner Address to be added as system owner
+     * @return proposalId The ID of the created proposal
+     */
+    function proposeAddOwner(address sender, address newOwner) external onlyAuthorized returns (uint256) {
+        require(!userSystem.isSystemOwner(newOwner), "Already a system owner");
+        require(userSystem.isRegistered(newOwner), "User not registered");
+&nbsp;
+        uint256 proposalId = proposalCount++;
+&nbsp;
+        // Create the proposal
+        Proposal storage newProposal = proposals[proposalId];
+        newProposal.id = proposalId;
+        newProposal.proposalType = ProposalType.AddOwner;
+        newProposal.target = newOwner;
+        newProposal.proposer = sender;
+        newProposal.state = ProposalState.Pending;
+        newProposal.approvalCount = 0;
+        newProposal.rejectionCount = 0;
+        newProposal.createdAt = block.timestamp;
+&nbsp;
+        // Proposer automatically approves
+        approveProposal(sender, proposalId);
+&nbsp;
+        emit ProposalCreated(proposalId, ProposalType.AddOwner, newOwner, sender);
+&nbsp;
+        return proposalId;
+    }
+&nbsp;
+&nbsp;
+    function getProposalInfo(uint256 proposalId) external onlyAuthorized view returns (
+        uint pId,
+        uint proposalType,
+        address target,
+        address proposer,
+        uint256 approvalCount,
+        uint256 rejectionCount
+    ) {
+        require(proposalId &lt; proposalCount, "Proposal does not exist");
+&nbsp;
+        Proposal storage proposal = proposals[proposalId];
+&nbsp;
+        return (
+            proposal.id,
+            uint(proposal.proposalType),
+            proposal.target,
+            proposal.proposer,
+            proposal.approvalCount,
+            proposal.rejectionCount
+        );
+    }
+&nbsp;
+    /**
+     * @dev Create a proposal to remove a system owner
+     * @param sender Address proposing the removal
+     * @param owner Address to be removed from system owners
+     * @return proposalId The ID of the created proposal
+     */
+    function proposeRemoveOwner(address sender, address owner) external onlyAuthorized returns (uint256) {
+        require(userSystem.isSystemOwner(owner), "Not a system owner");
+        require(owner != sender, "Cannot propose to remove yourself");
+&nbsp;
+        uint256 proposalId = proposalCount++;
+&nbsp;
+        // Create the proposal
+        Proposal storage newProposal = proposals[proposalId];
+        newProposal.id = proposalId;
+        newProposal.proposalType = ProposalType.RemoveOwner;
+        newProposal.target = owner;
+        newProposal.proposer = sender;
+        newProposal.state = ProposalState.Pending;
+        newProposal.approvalCount = 0;
+        newProposal.rejectionCount = 0;
+        newProposal.createdAt = block.timestamp;
+&nbsp;
+        // Proposer automatically approves
+        approveProposal(sender, proposalId);
+&nbsp;
+        emit ProposalCreated(proposalId, ProposalType.RemoveOwner, owner, sender);
+&nbsp;
+        return proposalId;
+    }
+&nbsp;
+    /**
+     * @dev Check if a proposal can be executed based on approval thresholds
+     * @param proposalId ID of the proposal
+     * @return True if the proposal can be executed
+     */
+    function canExecute(uint256 proposalId) external view returns (bool) {
+        return _canExecute(proposalId);
+    }
+&nbsp;
+    /**
+     * @dev Check if a proposal can be executed based on approval thresholds
+     * @param proposalId ID of the proposal
+     * @return True if the proposal can be executed
+     */
+    function _canExecute(uint256 proposalId) internal view returns (bool) {
+        Proposal storage proposal = proposals[proposalId];
+&nbsp;
+        uint256 ownerCount = userSystem.getSystemOwnerCount();
+        uint256 approvalCount = proposal.approvalCount;
+&nbsp;
+        if (proposal.proposalType == ProposalType.AddOwner) {
+            // Per aggiungere un owner: necessità di maggioranza (50% + 1)
+            return approvalCount &gt; ownerCount / 2;
+        } else {
+            // Per rimuovere un owner: necessità di unanimità meno 1 (il target)
+            // Non contiamo il target per l'unanimità (anche se non ha votato)
+            uint256 requiredApprovals = ownerCount - 1;
+            return approvalCount &gt;= requiredApprovals &amp;&amp; !proposal.hasVoted[proposal.target];
+        }
+    }
+&nbsp;
+    /**
+     * @dev Check if a proposal cannot reach quorum anymore due to rejections
+     * @param proposalId ID of the proposal
+     * @return True if the proposal cannot reach quorum
+     */
+    function _cannotReachQuorum(uint256 proposalId) internal view returns (bool) {
+        Proposal storage proposal = proposals[proposalId];
+        uint256 ownerCount = userSystem.getSystemOwnerCount();
+        uint256 rejectionCount = proposal.rejectionCount;
+&nbsp;
+        if (proposal.proposalType == ProposalType.AddOwner) {
+            // Se più della metà degli owner ha votato contro, la proposta non può passare
+            // Ogni voto contrario riduce il numero massimo di voti favorevoli possibili
+            uint256 maxPossibleApprovals = ownerCount - rejectionCount;
+            return maxPossibleApprovals &lt;= ownerCount / 2;
+        } else {
+            // Per rimuovere un owner: se anche solo un owner (diverso dal target) ha votato contro,
+            // la proposta non può passare (abbiamo bisogno dell'unanimità)
+            return rejectionCount &gt; 0;
+        }
+    }
+&nbsp;
+    function hasVoted(uint256 proposalId, address wallet) public view onlyAuthorized returns (bool) {
+        Proposal storage proposal = proposals[proposalId];
+        return proposal.hasVoted[wallet];
+    }
+    /**
+     * @dev Execute a proposal
+     * @param proposalId ID of the proposal to execute
+     */
+    function _executeProposal(uint256 proposalId) internal {
+        Proposal storage proposal = proposals[proposalId];
+&nbsp;
+        if (proposal.proposalType == ProposalType.AddOwner) {
+            // Call UserTrustSystem to add system owner
+            userSystem.addSystemOwner(proposal.target);
+        } else {
+            // Call UserTrustSystem to remove system owner
+            userSystem.removeSystemOwner(proposal.target);
+        }
+&nbsp;
+        // Update state
+        proposal.state = ProposalState.Executed;
+&nbsp;
+        emit ProposalExecuted(proposalId);
+    }
+&nbsp;
+    /**
+     * @dev Returns all pending proposals
+     * @return proposalIds Array of pending proposal IDs
+     */
+    function getPendingProposals() external view returns (uint256[] memory) {
+        uint256 pendingCount = 0;
+&nbsp;
+        // Count pending proposals
+        for (uint256 i = 0; i &lt; proposalCount; i++) {
+            if (proposals[i].state == ProposalState.Pending) {
+                pendingCount++;
+            }
+        }
+&nbsp;
+        // Create result array
+        uint256[] memory result = new uint256[](pendingCount);
+        uint256 resultIndex = 0;
+&nbsp;
+        // Fill result array
+        for (uint256 i = 0; i &lt; proposalCount; i++) {
+            if (proposals[i].state == ProposalState.Pending) {
+                result[resultIndex] = i;
+                resultIndex++;
+            }
+        }
+&nbsp;
+        return result;
+    }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Apr 11 2025 12:51:10 GMT+0200 (Central European Summer Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

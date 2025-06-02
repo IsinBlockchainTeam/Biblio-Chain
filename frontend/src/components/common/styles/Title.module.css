@@ -1,0 +1,55 @@
+.titleContainer {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.title {
+    color: white;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.sizeSmall {
+    font-size: 1.8rem;
+}
+
+.sizeMedium {
+    font-size: 2.5rem;
+}
+
+.sizeLarge {
+    font-size: 3.5rem;
+}
+
+.underline {
+    width: 80px;
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #EA4492, #428CD4);
+    position: relative;
+}
+
+.alignLeft {
+    text-align: left;
+}
+
+.alignLeft .underline {
+    margin-right: auto;
+}
+
+.alignCenter {
+    text-align: center;
+}
+
+.alignCenter .underline {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.alignRight {
+    text-align: right;
+}
+
+.alignRight .underline {
+    margin-left: auto;
+}

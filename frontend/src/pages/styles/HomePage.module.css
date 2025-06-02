@@ -1,0 +1,39 @@
+/* definisce solo content e posizione+dimensione per le componenti*/
+.homePage {
+    position: relative;
+    background-color: #041B2D;
+    overflow-x: hidden;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 9rem 2rem 6rem;
+    position: relative;
+    z-index: 1;
+}
+
+.heroVisual {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+    animation: fadeIn 1s ease-out 0.5s both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

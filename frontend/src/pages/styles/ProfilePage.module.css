@@ -1,0 +1,29 @@
+.profilePage {
+    min-height: 100vh;
+    background-color: var(--primary-darkest);
+    position: relative;
+    padding: 6rem 0 0;
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.tabsContainer {
+    background-color: var(--primary-darkest);
+    overflow: hidden;
+    width: 100%;
+    margin-top: -30px;
+    position: relative;
+    z-index: 10;
+    padding: 0 1.5rem;
+}
+
+.tabContent {
+    padding: 2rem 1rem;
+}

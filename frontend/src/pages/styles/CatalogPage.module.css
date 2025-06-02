@@ -1,0 +1,156 @@
+.catalogPage {
+    min-height: 100vh;
+    background-color: var(--primary-darkest);
+    position: relative;
+    overflow-x: hidden;
+    padding-bottom: 4rem;
+}
+
+.catalogContainer {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 8rem 2rem 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.catalogHeader {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.catalogDescription {
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.noResults {
+    text-align: center;
+    padding: 3rem;
+    background-color: rgba(4, 27, 45, 0.7);
+    border-radius: var(--border-radius-md);
+    margin-top: 2rem;
+}
+
+.noResults p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.resultsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(4, 27, 45, 0.7);
+    padding: 1rem 1.5rem;
+    border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.resultsCount {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.booksGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    background-color: rgba(4, 27, 45, 0.7);
+    border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+}
+
+.genreSections {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(4, 27, 45, 0.7);
+    border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+    padding: 2rem;
+}
+
+.genreSection {
+    margin-bottom: 2rem;
+}
+
+.genreSection:last-child {
+    margin-bottom: 0;
+}
+
+.genreBooks {
+    display: flex;
+    overflow-x: auto;
+    padding: 0 0 1.5rem 0;
+    gap: 1.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0.1);
+}
+
+.genreBooks::-webkit-scrollbar {
+    height: 6px;
+}
+
+.genreBooks::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.genreBooks::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.genreBooks .bookCard {
+    min-width: 200px;
+    max-width: 200px;
+    flex-shrink: 0;
+}
+
+.genreTitle {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 1.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.8rem;
+}
+
+.bookCount {
+    color: var(--text-muted);
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.bookCard {
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.bookCard:hover {
+    transform: translateY(-5px);
+}
+
+.noResultsIcon {
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 1.5rem;
+}
+
+.noResultsTitle {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.noResultsMessage {
+    color: var(--text-muted);
+    max-width: 400px;
+    line-height: 1.6;
+    margin: 0 auto;
+}

@@ -1,0 +1,30 @@
+.discoverSection {
+    padding: 6rem 2rem;
+    background-color: transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.carouselWrapper {
+    margin: 6rem auto 4rem;
+    position: relative;
+    overflow: visible;
+    width: 90%;
+    max-width: 1400px;
+}
+
+.carouselContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
+    perspective: 1500px;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.discoverCta {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}

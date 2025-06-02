@@ -1,0 +1,150 @@
+.formField {
+    position: relative;
+    margin-bottom: 0.8rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.formInput {
+    width: 100%;
+    background-color: var(--primary-darkest);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    padding: 0.8rem 0.7rem 0.4rem;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    min-height: 2rem;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+.formInput:focus {
+    outline: none;
+    border-color: var(--accent-light);
+    box-shadow: 0 0 0 2px rgba(255, 156, 218, 0.2);
+}
+
+.formInput::placeholder {
+    color: transparent;
+}
+
+.formInput:focus::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.formLabel {
+    position: absolute;
+    left: 0.7rem;
+    top: 0.8rem;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+    transition: all 0.2s ease;
+    transform-origin: left top;
+}
+
+
+.formInput:focus + .formLabel {
+    transform: translateY(-1.3rem) scale(0.8);
+    background-image: radial-gradient(circle at 50% 50%, var(--primary-darkest) 60%, transparent 100%);
+    padding: 0 1.2rem 0 1.2rem;
+    color: var(--accent-light);
+}
+
+
+.formInput:not(:placeholder-shown) + .formLabel {
+    transform: translateY(-1.3rem) scale(0.8);
+    background-image: radial-gradient(circle at 50% 50%, var(--primary-darkest) 60%, transparent 100%);
+    padding: 0 1.2rem 0 1.2rem;
+    color: var(--accent-light);
+}
+
+
+textarea.formInput {
+    padding-top: 1.2rem;
+    min-height: 5rem;
+}
+
+
+.errorInput {
+    border-color: #ff4747 !important;
+    background-color: rgba(255, 71, 71, 0.05) !important;
+}
+
+.errorInput:focus {
+    box-shadow: 0 0 0 2px rgba(255, 71, 71, 0.2) !important;
+}
+
+.errorMessage {
+    color: #ff4747;
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+}
+
+
+.formSelect {
+    width: 100%;
+    background-color: var(--primary-darkest);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    padding: 0.8rem 0.7rem 0.4rem;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    height: 2.8rem;
+    background: var(--primary-darkest);
+    appearance: none;
+    background-position: right 0.7rem center;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+.formSelect:focus {
+    outline: none;
+    border-color: var(--accent-light);
+    box-shadow: 0 0 0 2px rgba(255, 156, 218, 0.2);
+}
+
+
+.formSelect + .formLabel {
+    transform: translateY(-1.3rem) scale(0.8);
+    background-image: radial-gradient(circle at 50% 50%, var(--primary-darkest) 60%, transparent 100%);
+    padding: 0 1.2rem 0 1.2rem;
+    color: var(--accent-light);
+}
+
+
+.formSelect:focus + .formLabel {
+    color: var(--accent-light);
+}
+
+
+.emptySelect + .formLabel {
+    transform: none;
+    background-image: none;
+    padding: 0;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.emptySelect:focus + .formLabel {
+    transform: translateY(-1.3rem) scale(0.8);
+    background-image: radial-gradient(circle at 50% 50%, var(--primary-darkest) 60%, transparent 100%);
+    padding: 0 1.2rem 0 1.2rem;
+    color: var(--accent-light);
+}
+.formSelect + .formLabel {
+    transform: translateY(-1.3rem) scale(0.8);
+    background-image: radial-gradient(circle at 50% 50%, var(--primary-darkest) 60%, transparent 100%);
+    padding: 0 1.2rem 0 1.2rem;
+    color: var(--accent-light);
+}
+.formInput[id="description"] {
+    margin-top: 1rem;
+}
+textarea.formInput + .formLabel {
+    transform: translateY(-0.2rem) scale(0.8) !important;
+}
+textarea.formInput{
+    background-color: var(--primary-darkest) !important;
+}

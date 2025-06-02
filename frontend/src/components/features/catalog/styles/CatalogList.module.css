@@ -1,0 +1,100 @@
+/* src/pages/Catalog/components/CatalogList/CatalogList.module.css */
+.genreSections {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(4, 27, 45, 0.7);
+    border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+    padding: 2rem;
+}
+
+.genreSection {
+    margin-bottom: 2rem;
+}
+
+.genreSection:last-child {
+    margin-bottom: 0;
+}
+
+.genreTitle {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 1.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.8rem;
+}
+
+.bookCount {
+    color: var(--text-muted);
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.genreBooks {
+    display: flex;
+    overflow-x: auto;
+    padding: 0 0 1.5rem 0;
+    gap: 1.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0.1);
+}
+
+.genreBooks::-webkit-scrollbar {
+    height: 6px;
+}
+
+.genreBooks::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.genreBooks::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.bookCard {
+    min-width: 200px;
+    max-width: 200px;
+    flex-shrink: 0;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.bookCard:hover {
+    transform: translateY(-5px);
+}
+
+/* No results section */
+.noResults {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: rgba(4, 27, 45, 0.7);
+    border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+}
+
+.noResultsIcon {
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 1.5rem;
+}
+
+.noResultsTitle {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.noResultsMessage {
+    color: var(--text-muted);
+    max-width: 400px;
+    line-height: 1.6;
+    margin: 0 auto;
+}

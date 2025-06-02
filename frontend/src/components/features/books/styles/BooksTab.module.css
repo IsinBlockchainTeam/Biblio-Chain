@@ -1,0 +1,4 @@
+.booksTab {
+    display: flex;
+    flex-direction: column;
+}

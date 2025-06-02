@@ -1,0 +1,142 @@
+.loginPage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 2rem;
+    position: relative;
+    background-color: var(--primary-darkest);
+}
+
+.loginContainer {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 450px;
+}
+
+.loginBox {
+    position: relative;
+    background-color: rgba(4, 27, 45, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius-md);
+    padding: 2.5rem;
+    overflow: hidden;
+    animation: fadeIn 0.6s ease-out;
+}
+
+/*ITA: funziona come quello della bookcard, vedi li x commento*/
+/* sostanzialmente mette effetto come background e lo taglia con l'after*/
+.loginBox::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    z-index: -1;
+    border-radius: calc(var(--border-radius-md) + 2px);
+    background: linear-gradient(
+            90deg,
+            var(--accent-light),
+            var(--primary-medium),
+            var(--accent-light)
+    );
+    background-size: 200% 200%;
+    animation: gradientMove 8s linear infinite;
+}
+
+.loginBox::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    z-index: -1;
+    border-radius: var(--border-radius-md);
+    background-color: var(--primary-darkest);
+}
+
+.loginHeader {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.walletOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* important x override proprietà del button component*/
+.walletButton {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.9rem !important;
+    font-size: 1rem !important;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.walletButton:hover {
+    transform: translateY(-2px);
+}
+
+.walletIcon {
+    width: 22px;
+    height: 22px;
+}
+
+.errorMessage {
+    color: #ff6b6b;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.infoText {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.link {
+    color: var(--accent-light);
+    text-decoration: none;
+    transition: color 0.3s;
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+.link:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}

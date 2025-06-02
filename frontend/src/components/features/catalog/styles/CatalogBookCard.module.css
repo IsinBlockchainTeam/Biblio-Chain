@@ -1,0 +1,197 @@
+/* struttura card */
+.bookCard {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(4, 27, 45, 0.4);  /* sfondo semitrasparente */
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;  /* transizioni fluide per hover */
+    height: 100%;
+    cursor: pointer;
+    position: relative;  /* necessario per posizionare pseudo-elementi */
+}
+
+/* effetto hover condizionale (lo applica solo se non ha classe noHoverEffect) */
+.bookCard:not(.noHoverEffect):hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);  /* ombra più forte all'hover */
+}
+
+/* bordo luminoso */
+.bookCard::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border-radius: 13px;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(66, 140, 212, 0.2));
+    z-index: -1;  /* dietro al contenuto principale */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* rende visibile bordo hover */
+.bookCard:hover::before {
+    opacity: 0.6;
+}
+
+/* copertina */
+.bookCover {
+    width: 100%;
+    aspect-ratio: 2/3;  /* proporzione libro */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);  /* transizione con effetto elastico*/
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform-origin: center bottom;  /* punto di origine */
+}
+
+.bookCard:hover .bookCover {
+    transform: translateY(-12px) scale(1.05);  /* solleva e scala*/
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);  /* ombra piu forte */
+}
+
+.bookCoverFallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    color: white;
+    font-weight: 600;
+}
+
+.bookContent {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;  /* occupa tutto lo spazio*/
+    transition: transform 0.3s ease;
+}
+
+.bookCard:hover .bookContent {
+    transform: translateY(4px); /*contenuto va verso il basso*/
+}
+
+.bookTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    margin: 0 0 0.3rem 0;
+    overflow: hidden;
+    text-overflow: ellipsis;  /* aggiunge puntini ...*/
+    display: -webkit-box;
+    -webkit-line-clamp: 2;  /* limita a 2 righe */
+    -webkit-box-orient: vertical;  /* proprietà necessaria per line-clamp */
+}
+
+.bookAuthor {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0 0 0.8rem 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;  /* una sola riga */
+}
+
+.bookMeta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.bookRating {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.ratingValue {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* badge x anno pubb*/
+.publishYear {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    padding: 0.2rem 0.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.bookTags {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;  /* spinge tag in basso */
+    gap: 0.5rem;
+}
+
+/* stile comune per tags */
+.statusTag, .genreTag {
+    padding: 0.3rem 0.6rem;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 48%; /*x evitare overflow*/
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* animazione tag in hover*/
+.bookCard:hover .statusTag,
+.bookCard:hover .genreTag {
+    transform: translateY(-2px); /* si alzano di 3px e ombra piu forte*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* effetto "shimmer" */
+.available::after, .forRent::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;  /*starta fuori dal tag a sx */
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent
+    );
+    transition: left 0.7s ease;  /* transizione fluida*/
+}
+
+.bookCard:hover .available::after, .bookCard:hover .forRent::after{
+    left: 100%;  /* sposta l'effetto fuori a destra creando scorrimento */
+}
+
+.available, .forRent{
+    background-color: rgba(72, 187, 120, 0.25);
+    color: #4ade80;
+    border: 1px solid rgba(72, 187, 120, 0.3);
+    position: relative;
+    overflow: hidden;  /* serve x shimmer*/
+}
+
+.lent {
+    background-color: rgba(66, 140, 212, 0.25);
+    color: #60a5fa;
+    border: 1px solid rgba(66, 140, 212, 0.3);
+}
+
+.genreTag {
+    background-color: rgba(255, 156, 218, 0.1);
+    color: var(--accent-light);
+    border: 1px solid rgba(255, 156, 218, 0.2);
+}

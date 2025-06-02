@@ -1,0 +1,92 @@
+.roadmapStep {
+    display: flex;
+    align-items: center;
+    margin-bottom: 100px;
+    position: relative;
+    z-index: 2;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.stepRight {
+    padding-left: calc(50% + 30px);
+    justify-content: flex-start;
+}
+
+.stepLeft {
+    padding-right: calc(50% + 30px);
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.stepNumber {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: white;
+    position: absolute;
+    z-index: 3;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.stepRight .stepNumber {
+    background: linear-gradient(135deg, #EA4492, #FF9CDA);
+    left: calc(50% - 30px);
+}
+
+.stepLeft .stepNumber {
+    background: linear-gradient(135deg, #004E9A, #428CD4);
+    right: calc(50% - 30px);
+}
+
+.stepContent {
+    background-color: rgba(26, 46, 68, 0.7);
+    backdrop-filter: blur(8px);
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.stepRight .stepContent {
+    margin-left: 2rem;
+}
+
+.stepLeft .stepContent {
+    margin-right: 2rem;
+}
+
+.stepContent h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: white;
+}
+
+.stepContent p {
+    color: #94a3b8;
+    line-height: 1.6;
+}
+.stepRight::before,
+.stepLeft::before {
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 50px;
+    top: 30px;
+}
+
+.stepRight::before {
+    background: linear-gradient(to right, #EA4492, rgba(234, 68, 146, 0.2));
+    left: 50%;
+}
+
+.stepLeft::before {
+    background: linear-gradient(to left, #004E9A, rgba(0, 78, 154, 0.2));
+    right: 50%;
+}

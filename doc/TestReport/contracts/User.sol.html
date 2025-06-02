@@ -1,0 +1,842 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/User.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> User.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>36/36</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>40/40</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>21/21</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>51/51</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1155×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">122×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1505×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1492×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">70×</span>
+<span class="cline-any cline-yes">68×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1003×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1003×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1003×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">389×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">371×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">371×</span>
+<span class="cline-any cline-yes">218×</span>
+<span class="cline-any cline-yes">218×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">371×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">368×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">395×</span>
+<span class="cline-any cline-yes">395×</span>
+<span class="cline-any cline-yes">395×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1341×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1663×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">638×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">65×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">64×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">64×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">64×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">264×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">316×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">395×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
+&nbsp;
+import "@openzeppelin/contracts/access/Ownable.sol";
+&nbsp;
+/**
+ * @title UserTrustSystem
+ * @dev Manages user trust level and system ownership privileges
+ */
+contract UserTrustSystem is Ownable {
+    // Infraction severity levels
+    enum InfractionSeverity { Low, High }
+    // User struct - minimal data for gas optimization
+    struct User {
+        bool isRegistered;
+        bool isSystemOwner;
+        uint8 trustLevel;    // 0-5 scale, 0 = banned, 5 = maximum trust
+    }
+&nbsp;
+    struct UserRequests {
+        uint256 requestCount;
+        uint256 lastResetTime;
+    }
+&nbsp;
+    uint256 public constant MAX_REQUESTS_WINDOW = 1 hours;
+    uint256 public constant MAX_REQUESTS_THRESHOLD = 10;
+&nbsp;
+    // Track all registered user addresses
+    address[] private _allUsers;
+&nbsp;
+    mapping(address =&gt; UserRequests) private _userRequests;
+    mapping(address =&gt; bool) private _authorizedContracts;
+    mapping(address =&gt; User) private _users;
+    uint256 private _systemOwnerCount;
+&nbsp;
+&nbsp;
+    // Events
+    event UserRegistered(address indexed user);
+    event SystemOwnerAdded(address indexed user);
+    event SystemOwnerRemoved(address indexed user);
+    event TrustLevelDecreased(address indexed user, uint8 oldLevel, uint8 newLevel, InfractionSeverity severity);
+    event UserUnbanned(address indexed user, address indexed by);
+    event GovernanceContractSet(address indexed governanceContract);
+&nbsp;
+&nbsp;
+    function addAuthorizedContract(address contractAddress) external onlyOwner {
+        _authorizedContracts[contractAddress] = true;
+    }
+&nbsp;
+    function isAuthorizedContract(address contractAddress) public view returns (bool) {
+        return _authorizedContracts[contractAddress];
+    }
+&nbsp;
+    constructor() Ownable(msg.sender) {
+    }
+    modifier onlyAuthorizedOrOwner() {
+        require(
+            _authorizedContracts[msg.sender] ||
+            msg.sender == owner(),
+            "Not authorized"
+        );
+        _;
+    }
+    // Modifiers
+    modifier onlyRegistered(address user) {
+        require(_users[user].isRegistered, "User not registered");
+        _;
+    }
+    /**
+     * @dev Registers a new user with maximum trust level
+     * @param user The address of the user to register
+     */
+    function registerUser(address user) public onlyAuthorizedOrOwner {
+&nbsp;
+        // Create new user with maximum trust level
+        _users[user] = User({
+            isRegistered: true,
+            isSystemOwner: false,
+            trustLevel: 5
+        });
+&nbsp;
+        // Add user to the list of all users
+        _allUsers.push(user);
+&nbsp;
+        emit UserRegistered(user);
+    }
+&nbsp;
+    function checkIfSpam(address user) public returns(bool) {
+        // Esenta i system owner dai limiti
+        if (isSystemOwner(user)) {
+            return true;
+        }
+&nbsp;
+        UserRequests storage userRequest = _userRequests[user];
+&nbsp;
+        // Resetta il conteggio se la finestra temporale è scaduta
+        if (block.timestamp - userRequest.lastResetTime &gt; MAX_REQUESTS_WINDOW -1) {
+            userRequest.requestCount = 0;
+            userRequest.lastResetTime = block.timestamp;
+        }
+&nbsp;
+        // Verifica se l'utente ha superato la soglia di richieste
+        if (++userRequest.requestCount &gt; MAX_REQUESTS_THRESHOLD -1) {
+            decreaseTrustLevel(user, InfractionSeverity.High);
+            return false;
+        }
+        return true;
+    }
+    /**
+     * @dev Grants system owner privileges to a user
+     * @param user The address of the user
+     */
+    function addSystemOwner(address user) external onlyAuthorizedOrOwner {
+&nbsp;
+        _users[user].isSystemOwner = true;
+        _incrementSystemOwnerCount();
+        emit SystemOwnerAdded(user);
+    }
+&nbsp;
+    /**
+     * @dev Revokes system owner privileges from a user
+     * @param user The address of the user
+     */
+    function removeSystemOwner(address user) public onlyAuthorizedOrOwner  {
+&nbsp;
+        _users[user].isSystemOwner = false;
+        _decrementSystemOwnerCount();
+        emit SystemOwnerRemoved(user);
+    }
+&nbsp;
+    /**
+     * @dev Record an infraction and decrease user's trust level
+     * @param user The address of the user
+     * @param severity The severity of the infraction
+     */
+    function decreaseTrustLevel(address user, InfractionSeverity severity) public onlyAuthorizedOrOwner {
+        // Prevent decreasing trust level of system owners
+&nbsp;
+&nbsp;
+        uint8 oldLevel = _users[user].trustLevel;
+        uint8 decrease;
+&nbsp;
+        // Determine decrease amount based on severity
+        if (severity == InfractionSeverity.Low) {
+            decrease = 1;
+        }else {
+            // High severity - go directly to 0 and ban
+            decrease = 5;
+        }
+&nbsp;
+        // Calculate new level, ensuring it doesn't go below 0
+        uint8 newLevel = oldLevel - decrease;
+&nbsp;
+        if(newLevel == 0){
+            banUser(user);
+        }else{
+            _users[user].trustLevel = newLevel;
+        }
+&nbsp;
+        emit TrustLevelDecreased(user, oldLevel, newLevel, severity);
+    }
+&nbsp;
+    /**
+     * @dev Unban a user by resetting their trust level to medium
+     * @param user The address of the user to unban
+     */
+    function unbanUser(address user) public onlyAuthorizedOrOwner onlyRegistered(user) {
+        require(_users[user].trustLevel == 0, "User is not banned");
+&nbsp;
+        // Reset trust level to medium (3)
+        _users[user].trustLevel = 3;
+&nbsp;
+        emit UserUnbanned(user, msg.sender);
+    }
+&nbsp;
+    /**
+     * @dev Check if user is a system owner
+     * @param user The address to check
+     * @return True if the user is a system owner
+     */
+    function isSystemOwner(address user) public view returns (bool) {
+        return _users[user].isSystemOwner;
+    }
+&nbsp;
+    /**
+     * @dev Check if user is registered
+     * @param user The address to check
+     * @return True if the user is registered
+     */
+    function isRegistered(address user) public view returns (bool) {
+        return _users[user].isRegistered;
+    }
+&nbsp;
+    /**
+     * @dev Check if user is banned (trust level 0)
+     * @param user The address to check
+     * @return True if the user is banned
+     */
+    function isBanned(address user) public view returns (bool) {
+        return _users[user].isRegistered &amp;&amp; _users[user].trustLevel == 0;
+    }
+&nbsp;
+    /**
+     * @dev Ban a user by setting their trust level to 0
+     * @param user The address of the user to ban
+     */
+    function banUser(address user) public onlyAuthorizedOrOwner onlyRegistered(user) {
+        // System owners are protected from banning
+        require(!_users[user].isSystemOwner, "Cannot ban a system owner");
+&nbsp;
+        uint8 oldLevel = _users[user].trustLevel;
+&nbsp;
+        // Set trust level to 0 (banned)
+        _users[user].trustLevel = 0;
+&nbsp;
+        emit TrustLevelDecreased(user, oldLevel, 0, InfractionSeverity.High);
+    }
+    /**
+     * @dev Get user's current trust level
+     * @param user The address of the user
+     * @return The user's trust level (0-5)
+     */
+    function getTrustLevel(address user) public view returns (uint8) {
+        return _users[user].trustLevel;
+    }
+&nbsp;
+    /**
+     * @dev Get the number of system owners
+     * @return The count of system owners
+     */
+    function getSystemOwnerCount() public view returns (uint256) {
+        return _systemOwnerCount;
+    }
+&nbsp;
+    /**
+     * @dev Get all registered users
+     * @return Array of all registered user addresses
+     */
+    function getAllUsers() external view onlyAuthorizedOrOwner returns (address[] memory) {
+        return _allUsers;
+    }
+&nbsp;
+    /**
+     * @dev Get total number of registered users
+     * @return Total number of users
+     */
+    function totalUsers() external view returns (uint256) {
+        return _allUsers.length;
+    }
+&nbsp;
+    // Aggiorna il conteggio degli owner quando aggiunti o rimossi
+    function _incrementSystemOwnerCount() internal {
+        _systemOwnerCount += 1;
+    }
+&nbsp;
+    function _decrementSystemOwnerCount() internal {
+        _systemOwnerCount -= 1;
+        //ITA sempre maggiore o uguale ad 1, non posso autorimuovermi
+    }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Apr 11 2025 12:51:10 GMT+0200 (Central European Summer Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

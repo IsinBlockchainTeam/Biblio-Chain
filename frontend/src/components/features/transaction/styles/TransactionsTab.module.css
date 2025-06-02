@@ -1,0 +1,135 @@
+.transactionsTab {
+    display: flex;
+    flex-direction: column;
+}
+
+.transactionsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.tableHeader {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 1fr;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    background-color: rgba(4, 27, 45, 0.9);
+    border-radius: 16px 16px 0 0;
+}
+
+.tableHeaderCell {
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.tableRow {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 1fr;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: rgba(26, 35, 59, 0.3);
+    transition: background-color 0.3s;
+}
+
+.tableRow:hover {
+    background-color: rgba(26, 35, 59, 0.5);
+}
+
+.tableRow:last-child {
+    border-radius: 0 0 16px 16px;
+    border-bottom: none;
+}
+
+.tableCell {
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.transactionType {
+    padding: 0.3rem 0.8rem;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    width: fit-content;
+}
+
+.created {
+    background-color: rgba(66, 140, 212, 0.2);
+    color: var(--primary-medium);
+}
+
+.borrowed {
+    background-color: rgba(234, 68, 146, 0.2);
+    color: var(--accent);
+}
+
+.bought {
+    background-color: rgba(159, 68, 234, 0.2);
+    color: #ac71ff;
+}
+
+.returned {
+    background-color: rgba(0, 255, 0, 0.1);
+    color: #4ade80;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top-color: var(--accent);
+    border-left-color: var(--primary-medium);
+    animation: rotate 1s linear infinite;
+    margin-bottom: 1.5rem;
+}
+
+.loadingText {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.loadingSubtext {
+    color: var(--text-muted);
+    max-width: 400px;
+    line-height: 1.6;
+}
+
+/* Animazione per i puntini */
+@keyframes dots {
+    0%, 20% {
+        content: '.';
+    }
+    40%, 60% {
+        content: '..';
+    }
+    80%, 100% {
+        content: '...';
+    }
+}
+
+.loadingDots::after {
+    content: '.';
+    animation: dots 1.5s steps(1, end) infinite;
+    display: inline-block;
+    width: 20px;
+    text-align: left;
+}

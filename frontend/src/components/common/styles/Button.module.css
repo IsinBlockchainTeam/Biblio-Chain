@@ -1,0 +1,180 @@
+/* base button styles */
+.button {
+    position: relative;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* border button */
+.borderButton {
+    color: white;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+.borderButton::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    z-index: -1;
+    border-radius: 32px;
+    background: linear-gradient(
+            90deg,
+            #FF9CDA,
+            #428CD4,
+            #FF9CDA
+    );
+    background-size: 200% 200%;
+    animation: gradientMove 8s linear infinite;
+}
+
+.borderButton::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    z-index: -1;
+    border-radius: 28px;
+    background-color: rgba(4, 27, 45, 0.8);
+}
+
+.borderButton:hover {
+    transform: translateY(-2px);
+}
+
+.borderButton:hover::before {
+    animation: gradientMove 6s linear infinite;
+}
+
+.borderButton:active {
+    transform: scale(0.98);
+}
+
+/* fill button*/
+.fillButton {
+    background: linear-gradient(90deg, #EA4492, #428CD4);
+    color: white;
+    box-shadow: 0 4px 15px rgba(234, 68, 146, 0.3);
+}
+
+.fillButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(234, 68, 146, 0.4);
+}
+
+.fillButton:active {
+    transform: scale(0.98);
+}
+
+/* danger button */
+.dangerButton {
+    background: transparent;
+    border: 2px solid rgba(255, 71, 71, 0.4);
+    color: #ff4747;
+
+    transition: all 0.3s ease;
+}
+
+.dangerButton:hover {
+    border-color: #ff4747;
+    background-color: rgba(255, 71, 71, 0.1);
+    transform: translateY(-2px);
+    color: white;
+    box-shadow: 0 4px 12px rgba(255, 71, 71, 0.2);
+}
+
+.dangerButton:active {
+    transform: scale(0.98);
+}
+
+/* resume button */
+.resumeButton {
+    background: transparent;
+    border: 2px solid rgba(71, 255, 80, 0.4);
+    color: #60ff47;
+    transition: all 0.3s ease;
+}
+
+.resumeButton:hover {
+    border-color: #60ff47;
+    background-color: rgba(145, 255, 71, 0.1);
+    transform: translateY(-2px);
+    color: white;
+    box-shadow: 0 4px 12px rgba(166, 255, 71, 0.2);
+}
+
+.resumeButton:active {
+    transform: scale(0.98);
+}
+
+/* white button */
+.whiteButton {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    color: #d3d3d3;
+    min-width: 200px;
+    transition: all 0.3s ease;
+}
+
+.whiteButton:hover {
+    border-color: #d3d3d3;
+    min-width: 200px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    color: white;
+    box-shadow: 0 4px 12px rgba(175, 175, 175, 0.2);
+}
+.whiteButton:active {
+    transform: scale(0.98);
+}
+
+/* simple button */
+.simpleButton {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.simpleButton:hover {
+    border-color: #FF9CDA;
+    background-color: rgba(255, 156, 218, 0.1);
+    transform: translateY(-2px);
+}
+
+.simpleButton:active {
+    transform: scale(0.98);
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}

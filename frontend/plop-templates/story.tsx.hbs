@@ -1,0 +1,19 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import {{name}} from '{{importPath}}';
+
+const meta: Meta<typeof {{name}}> = {
+    title: '{{category}}/{{name}}',
+    component: {{name}},
+    tags: ['autodocs'],
+    };
+
+    export default meta;
+    type Story = StoryObj<typeof {{name}}>;
+
+        export const Default: Story = {
+        args: {
+        // Aggiungi qui eventuali props iniziali, es:
+        // children: 'Click me',
+        // variant: 'fill'
+        },
+        };

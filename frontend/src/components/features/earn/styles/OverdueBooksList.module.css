@@ -1,0 +1,81 @@
+.overdueBooksList {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.listHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.listTitle {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.bookCount {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.booksList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow-y: auto;
+    max-height: 60vh;
+    padding-right: 0.5rem;
+}
+
+.booksList::-webkit-scrollbar {
+    width: 5px;
+}
+
+.booksList::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.booksList::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.emptyContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem 1rem;
+    min-height: 300px;
+}
+
+.emptyStateIcon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.emptyStateTitle {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.emptyStateDescription {
+    color: var(--text-muted);
+    max-width: 400px;
+    line-height: 1.6;
+}

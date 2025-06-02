@@ -1,0 +1,46 @@
+.roadmapSection {
+    padding: 6rem 2rem;
+    position: relative;
+    background-color: transparent;
+}
+
+.roadmapContainer {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+    min-height: 1000px;
+}
+
+.roadPathContainer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.roadSvg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ITA: ombra della strada*/
+.roadPath {
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.1));
+}
+
+/* ITA: animazione per muovere il trattino verso il basso*/
+.roadDashes {
+    opacity: 0.6;
+    animation: dashMove 15s linear infinite;
+}
+
+@keyframes dashMove {
+    to {
+        stroke-dashoffset: -30;
+    }
+}
